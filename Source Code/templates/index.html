@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autism Spectrum Disorder Prediction in Children</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 70%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+        label:after {
+            content: " : ";
+        }
+        label {
+            color: rgb(104, 28, 28);
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+            font-size: 110%;
+            margin-bottom: 10px; /* Add spacing between labels */
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px; /* Add spacing between inputs */
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(19, 17, 17);
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 30%;
+        }
+        button[type="submit"]:hover {
+            background-color: #68b0e0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .error {
+            color: rgb(19, 15, 15);
+            font-size: 90%;
+            margin-top: -10px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            function validateSelectField(fieldId) {
+                var selectField = document.getElementById(fieldId);
+    
+    if (selectField.value === 'select') {
+        alert('Please select an option for ' + selectField.getAttribute('id') + '.');
+        return false;
+    }
+    
+    return true;
+}
+        validateSelectField('Ethnicity');
+        validateSelectField('Does your child look at you when you call his/her name?');
+        validateSelectField('How easy is it for you to get eye contact with your child')
+        validateSelectField('Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)')
+        validateSelectField('Does your child point to share interest with you? (e.g. pointing at an interesting sight)')
+        validateSelectField('Does your child pretend? (e.g. care for dolls, talk on a toy phone)')
+        validateSelectField('Does your child follow where you’re looking?')
+        validateSelectField('If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)')
+        validateSelectField('Would you describe your child’s first words as:')
+        validateSelectField('Does your child use simple gestures? (e.g. wave goodbye)')
+        validateSelectField('Does your child stare at nothing with no apparent purpose?')
+        validateSelectField('Gender')
+        validateSelectField('Born with jaundice')
+        validateSelectField('Family members with ASD history')
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Autism Spectrum Disorder Prediction in Children</h1>
+        <form action="{{url_for('predict')}}"method="post" onsubmit="return validateForm()">
+            <label for="Does your child look at you when you call his/her name?">Does your child look at you when you call his/her name?</label>
+            <select name="Does your child look at you when you call his/her name?" id="Does your child look at you when you call his/her name?" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+           
+            <label for="How easy is it for you to get eye contact with your child">How easy is it for you to get eye contact with your child</label>
+            <select name="How easy is it for you to get eye contact with your child" id="How easy is it for you to get eye contact with your child" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child point to indicate that s/he wants something? (e.g. a toy
+            that is out of reach)">Does your child point to indicate that she/he wants something? (e.g. a toythat is out of reach)</label>
+            <select name="Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)" id="Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child point to share interest with you? (e.g. pointing at an interes9ng sight)">
+            Does your child point to share interest with you? (e.g. pointing at an interesting sight)</label>
+            <select name="Does your child point to share interest with you? (e.g. pointing at an interesting sight)" id="Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child pretend? (e.g. care for dolls, talk on a toy phone)">Does your child pretend? (e.g. care for dolls, talk on a toy phone)</label>
+            <select name="Does your child pretend? (e.g. care for dolls, talk on a toy phone)" id="Does your child pretend? (e.g. care for dolls, talk on a toy phone)" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child follow where you’re looking?">Does your child follow where you’re looking?</label>
+            <select name="Does your child follow where you’re looking?" id="Does your child follow where you’re looking?" required>
+            <option value="select">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)">
+            If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)</label>
+            <select name="If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)" id="If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Would you describe your child’s first words as:">Would you describe your child’s first words as:</label>
+            <select name="Would you describe your child’s first words as:" id="Would you describe your child’s first words as:" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child use simple gestures? (e.g. wave goodbye)">Does your child use simple gestures? (e.g. wave goodbye)</label>
+            <select name="Does your child use simple gestures? (e.g. wave goodbye)" id="Does your child use simple gestures? (e.g. wave goodbye)" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            <label for="Does your child stare at nothing with no apparent purpose?">Does your child stare at nothing with no apparent purpose?</label>
+            <select name="Does your child stare at nothing with no apparent purpose?" id="Does your child stare at nothing with no apparent purpose?" required>
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+ 
+
+            <label for="Qchat-10-Score">Qchat-10-Score</label>
+            <input type="text" name="Qchat-10-Score" id="Score" placeholder="" required="required" /><br><br>
+
+
+
+            <label for="Age">Age</label>
+            <input type="text" name="Age" id="age" placeholder="" required="required" /><br><br>
+
+            
+
+            <label for="Gender">Gender</label>
+            <select name="Gender" id="Gender">
+                <option value="select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br><br>
+
+
+            <label for="Ethnicity">Ethnicity</label>
+            <select name="Ethnicity" id="Ethnicity">
+                <option value="select" name="select">Select</option>
+                <option value="White European" name="White_European">White European</option>
+                <option value="asian" name="asian">asian</option>
+                <option value="middle eastern" name="middle_eastern">middle eastern</option>
+                <option value="black" name="black">black</option>
+                <option value="south asian" name="south_asian">south asian</option>
+                <option value="Hispanic" name="Hispanic">Hispanic</option>
+                <option value="Others" name="Others">Others</option>
+                <option value="Latino" name="Latino">Latino</option>
+                <option value="Pacifica" name="Pacifica">Pacifica</option>
+                <option value="mixed" name="mixed">mixed</option>
+                <option value="Native Indian" name="Native_Indian">Native Indian</option>
+            </select><br><br>
+
+
+            <label for="Born with jaundice">Born with jaundice</label>
+            <select name="Born with jaundice" id="Born with jaundice">
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+            
+            <label for="Family members with ASD history">Family members with ASD history</label>
+            <select name="Family members with ASD history" id="Family members with ASD history">
+                <option value="select">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+
+         
+        <center><button type="submit"  value="Predict" class="btn btn-primary btn-block btn-large">Predict</button></center>
+        
+
+        </form>
+       
+    </div>
+    
+</body>
+</html>
+
